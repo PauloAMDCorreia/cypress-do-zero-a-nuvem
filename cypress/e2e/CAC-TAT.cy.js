@@ -33,16 +33,15 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .should('have.value', '')
   })
 
-  it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
+  it.only('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
     cy.get('#firstName').type('Paulo')
     cy.get('#lastName').type('Correia')
     cy.get('#email').type('paulo.amd@outlook.com')
     cy.get('#open-text-area').type('obrigado!')
-    cy.get('#phone-checkbox').click()
+    cy.get('#phone-checkbox').check()
     cy.get('button[type="submit"]').click()
 
-    cy.get('.error').should('be.visible')
-    
+    cy.get('.error').should('be.visible')    
   })
 
   it('preenche e limpa os campos nome, sobrenome, email e telefone', () => {
@@ -58,7 +57,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   })
 
   it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', () => {
-    cy.get('button[type="submit"]').click()
+    cy.get('#email-checkbox').check()
 
     cy.get('.error').should('be.visible')
   })
@@ -81,10 +80,36 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .should('have.value', 'mentoria')
   })
 
-  it.only('seleciona um produto (Blog) por seu índice', () => {
+  it('seleciona um produto (Blog) por seu índice', () => {
     cy.get('#product')
       .select(1)	
       .should('have.value', 'blog')
   })
+
+  it('marca o tipo de atendimento "Feedback"', () => {
+    cy.get(':nth-child(4) > input')
+      .check()
+      .should('have.value', 'feedback')
+  })
+
+  it('marca cada tipo de atendimento', () => {
+    cy.get('#support-type > :nth-child(2) > input')
+      .check()
+      .should('have.value', 'ajuda')
+    cy.get(':nth-child(3) > input')
+      .check()
+      .should('have.value', 'elogio')
+    cy.get(':nth-child(4) > input')
+      .check()
+      .should('have.value', 'feedback')
+  })
+
+  it('marca ambos checkboxes, depois desmarca o último', () => {
+    cy.get('#email-checkbox')
+      .check()
+    cy.get('#phone-checkbox')
+      .check()
+      .uncheck()
+  })  
 
 })
