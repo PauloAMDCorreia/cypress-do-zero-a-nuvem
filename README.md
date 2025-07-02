@@ -1,28 +1,24 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+# 🧪 Projeto de Testes Automatizados com Cypress
 
-👋 Seja bem-vindo(a)!
+Este projeto tem como objetivo a automação de testes end-to-end utilizando o framework [Cypress](https://www.cypress.io/). Os testes simulam interações reais com uma aplicação web, garantindo o funcionamento correto de funcionalidades como envio de formulários, validações e acessibilidade da interface.
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+---
 
-## O que você vai aprender?
+## ✅ Pré-requisitos
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
+Antes de executar o projeto, é necessário ter instalado na sua máquina:
 
-## Vamos começar?
+- [Node.js](https://nodejs.org/) (versão 14 ou superior)
+- [npm](https://www.npmjs.com/) (gerenciador de pacotes que vem com o Node)
+- [Git](https://git-scm.com/) (para clonar o repositório)
+- Editor de código (recomendado: [Visual Studio Code](https://code.visualstudio.com/))
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+---
 
-___
+## 📦 Instalação
 
-Este é um curso da **Escola Talking About Testing**.
+1. Clone o repositório:
+
+```bash
+git clone git@github.com:PauloAMDCorreia/cypress-do-zero-a-nuvem.git
+cd seu-repositorio

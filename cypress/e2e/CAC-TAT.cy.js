@@ -33,7 +33,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .should('have.value', '')
   })
 
-  it.only('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
+  it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
     cy.get('#firstName').type('Paulo')
     cy.get('#lastName').type('Correia')
     cy.get('#email').type('paulo.amd@outlook.com')
@@ -58,7 +58,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
   it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', () => {
     cy.get('#email-checkbox').check()
-
+    cy.get('button[type="submit"]').click()  
     cy.get('.error').should('be.visible')
   })
 
@@ -110,6 +110,46 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#phone-checkbox')
       .check()
       .uncheck()
-  })  
+  })
+  
+  it('seleciona um arquivo da pasta fixtures', () => {
+    cy.get('#file-upload')
+      .selectFile('cypress/fixtures/example.json')
+      .should(input => {
+        expect(input[0].files[0].name).to.equal('example.json')
+      })    
+  })
+
+  it('seleciona um arquivo simulando um drag-and-drop', () => {
+    cy.get('#file-upload')
+      .selectFile('cypress/fixtures/example.json', { action: 'drag-drop'})
+      .should(input => {
+        expect(input[0].files[0].name).to.equal('example.json')
+      })
+  })
+
+  it('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', () => {
+    cy.fixture('example.json').as('sampleFile')
+    cy.get('#file-upload')
+      .selectFile('@sampleFile')
+      .should(input => {
+        expect(input[0].files[0].name).to.equal('example.json')
+      })
+  })
+
+  it('verifica que a política de privacidade abre em outra aba sem a necessidade de um clique', () => {
+    cy.contains('a', 'Política de Privacidade')
+      .should('have.attr', 'href', 'privacy.html')
+      .and('have.attr', 'target', '_blank')
+  })
+
+  it('acessa a página da política de privacidade removendo o target e então clicando no link', () => {
+    cy.contains('a', 'Política de Privacidade')
+      .invoke('removeAttr', 'target')
+      .click()
+
+    cy.contains('h1', 'CAC TAT - Política de Privacidade')
+      .should('be.visible')
+  })
 
 })
