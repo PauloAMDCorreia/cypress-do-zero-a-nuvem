@@ -9,7 +9,8 @@
     "test": "cypress run",
     "cy:mobile": "cypress run --config viewportWidth=410,viewportHeight=860",
     "cy:mobile:open": "cypress open --config viewportWidth=410,viewportHeight=860",
-    "test:mobile": "cypress run --config viewportWidth=410,viewportHeight=860"
+    "test:mobile": "cypress run --config viewportWidth=410,viewportHeight=860",
+    "test:cloud": "cypress run --record"
   },
   "repository": {
     "type": "git",
