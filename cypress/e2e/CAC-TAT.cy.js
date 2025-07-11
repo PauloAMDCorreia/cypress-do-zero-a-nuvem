@@ -8,12 +8,22 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   })
 
   it('preenche os campos obrigatórios e envia o formulário', () => {
+    cy.clock()
+
+    const longText = Cypress._.repeat('afiasjfajfjiaofjafdtdtdodtdt', 10)
+
     cy.get('#firstName').type('Paulo')
     cy.get('#lastName').type('Correia')
     cy.get('#email').type('paulo.amd@outlook.com')
     cy.get('#phone').type('11974954317')
-    cy.get('#open-text-area').type('obrigado!')
+    cy.get('#open-text-area').type(longText, {delay: 0})
     cy.get('button[type="submit"]').click()
+
+    cy.get('.success').should('be.visible')
+
+    cy.tick(3000)
+
+    //cy.get('.success').should(not.be.visible)
   })
 
   it('exibe mensagem de erro ao submeter o formulário com um email com formatação inválida', () => {
@@ -149,6 +159,32 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .click()
 
     cy.contains('h1', 'CAC TAT - Política de Privacidade')
+      .should('be.visible')
+  })
+
+  it('preenche o campo da área de texto usando o comando invoke', () => {
+    cy.get('#open-text-area')
+      .invoke('val', 'um texto qualquer')
+      .should('have.value', 'um texto qualquer')
+  })
+
+  it('faz uma requisição HTTP', () => {
+    cy.request('https://cac-tat-v3.s3.eu-central-1.amazonaws.com/index.html')
+      .as('getRequest')
+      .its('status')
+      .should('be.equal', 200)
+
+    cy.get('@getRequest')
+      .its('statusText')
+      .should('be.equal', 'OK')
+    cy.get('@getRequest')
+      .its('body')
+      .should('include', 'CAC TAT') 
+  })
+
+  it.only('encontra o gato', () => {
+    cy.get('#cat')
+      .invoke('show')
       .should('be.visible')
   })
 
