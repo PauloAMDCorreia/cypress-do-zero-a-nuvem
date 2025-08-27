@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Curso 'Cypress, do Zero à Nuvem' da Escola Talking About Testing.",
   "main": "src/index.html",
+  "amazon": "https://www.amazon.com.br/",
   "scripts": {
     "start": "",
     "cy:open": "cypress open",
@@ -29,6 +30,7 @@
   "license": "MIT",
   "homepage": "https://github.com/wlsf82/cypress-do-zero-a-nuvem#readme",
   "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.41.2",
     "cypress": "^13.12.0"
   }
 }
