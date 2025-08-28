@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Central de Atendimento ao Cliente TAT', () => {
+describe('Desafio Tecnico Code', () => {
 
     beforeEach(() => {
       

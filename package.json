@@ -16,7 +16,8 @@
     "allure:generate": "allure generate allure-results",
     "allure:open": "allure open allure-report",
     "allure:clear": "rimraf allure-results allure-report",
-    "test:allure": "npx npm-run-all allure:clear cy:run allure:generate"
+    "test:allure": "npx npm-run-all allure:clear cy:run allure:generate",
+    "test:desafio": "cypress run --spec 'cypress/e2e/desafio-tecnico-code.cy.js'"
   },
   "repository": {
     "type": "git",

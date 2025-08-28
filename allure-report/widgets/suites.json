@@ -1,1 +1,1 @@
-{"total":2,"items":[{"uid":"9b759ce5e6d50707a94a7283de638504","name":"Central de Atendimento ao Cliente TAT","statistic":{"failed":0,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":2}}]}
+{"total":3,"items":[{"uid":"9b759ce5e6d50707a94a7283de638504","name":"Central de Atendimento ao Cliente TAT","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}},{"uid":"178e3531e2e26b47e5963a7a26013bbd","name":"Desafio Tecnico Code","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
