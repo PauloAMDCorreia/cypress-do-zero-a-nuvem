@@ -62,7 +62,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
           .clear()
           .type(longText, { delay: 0 })
     
-        // Valida que a aplicação continua funcionando (não dá erro de frontend)
+        // Valida que a aplicação continua funcionando
         cy.get('#twotabsearchtextbox').should('have.value', longText)
       })
     

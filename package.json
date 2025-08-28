@@ -11,7 +11,12 @@
     "cy:mobile": "cypress run --config viewportWidth=410,viewportHeight=860",
     "cy:mobile:open": "cypress open --config viewportWidth=410,viewportHeight=860",
     "test:mobile": "cypress run --config viewportWidth=410,viewportHeight=860",
-    "test:cloud": "cypress run --record"
+    "test:cloud": "cypress run --record",
+    "cy:run": "cypress run --config video=false --env allure=true",
+    "allure:generate": "allure generate allure-results",
+    "allure:open": "allure open allure-report",
+    "allure:clear": "rimraf allure-results allure-report",
+    "test:allure": "npx npm-run-all allure:clear cy:run allure:generate"
   },
   "repository": {
     "type": "git",
@@ -31,6 +36,7 @@
   "homepage": "https://github.com/wlsf82/cypress-do-zero-a-nuvem#readme",
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.41.2",
-    "cypress": "^13.12.0"
+    "cypress": "^13.12.0",
+    "rimraf": "^6.0.1"
   }
 }
