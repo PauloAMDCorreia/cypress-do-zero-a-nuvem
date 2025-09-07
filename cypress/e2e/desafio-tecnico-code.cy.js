@@ -7,7 +7,7 @@ describe('Desafio Tecnico Code', () => {
       cy.visit('https://www.amazon.com.br/')
     })
   
-    it.only('verifica o título da aplicação', () => {
+    it('verifica o título da aplicação', () => {
       cy.title().should('eq', 'Amazon.com.br | Tudo pra você, de A a Z.')
       cy.screenshot()
     })
@@ -74,6 +74,6 @@ describe('Desafio Tecnico Code', () => {
         // Verifica que sugestões não aparecem automaticamente sem texto
         cy.get('.s-suggestion-container').should('not.exist')
       })
-  
-  })
+
+})
   

@@ -17,7 +17,8 @@
     "allure:open": "allure open allure-report",
     "allure:clear": "rimraf allure-results allure-report",
     "test:allure": "npx npm-run-all allure:clear cy:run allure:generate",
-    "test:desafio": "cypress run --spec 'cypress/e2e/desafio-tecnico-code.cy.js'"
+    "test:desafio": "cypress run --spec 'cypress/e2e/desafio-tecnico-code.cy.js'",
+    "test:api": "cypress run --spec 'cypress/e2e/testes-api.cy.js'"
   },
   "repository": {
     "type": "git",
@@ -39,5 +40,8 @@
     "@shelex/cypress-allure-plugin": "^2.41.2",
     "cypress": "^13.12.0",
     "rimraf": "^6.0.1"
+  },
+  "dependencies": {
+    "cypress-plugin-api": "^2.11.2"
   }
 }
